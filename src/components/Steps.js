@@ -31,7 +31,7 @@ function Steps() {
             setForm(initialData);
             return
         }
-        list.push(data);
+        list.unshift(data);
         setForm(initialData);
 
     }
