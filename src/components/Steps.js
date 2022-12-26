@@ -31,7 +31,17 @@ function Steps() {
             setForm(initialData);
             return
         }
+
         list.unshift(data);
+        list.sort(function (a, b) {
+            if (a.date < b.date) {
+                return 1
+            }
+            if (a.date > b.date) {
+                return -1
+            }
+            return 0
+        })
         setForm(initialData);
 
     }
@@ -53,7 +63,7 @@ function Steps() {
                 <form className="input-form" onSubmit={addDistance}>
                     <label className="date">
                         <span className="date-span">Дата (ДД.ММ.ГГ)</span>
-                        <input name='date' maxLength={8} placeholder='ДД.ММ.ГГ' className="date-input" value={data.date} onChange={handleEvent}></input>
+                        <input name='date' maxLength={8} type='date' className="date-input" value={data.date} onChange={handleEvent}></input>
                     </label>
                     <label className="distance">
                         <span className="distance-span">Пройдено км</span>
